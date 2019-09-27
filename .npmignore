@@ -1,0 +1,5 @@
+.gitattributes
+.github
+src
+tsconfig.json
+typings
