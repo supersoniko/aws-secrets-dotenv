@@ -89,5 +89,4 @@ typings/
 
 .idea/
 
-lib/**/*.ts
-lib/**/*.js
+lib

@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import AWS from 'aws-sdk';
 import fs from 'fs';
 
