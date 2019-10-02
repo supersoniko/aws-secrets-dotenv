@@ -16,6 +16,7 @@ const secretsManagerFunctionFactory = (
 					SecretString: config.SecretString
 				})
 				.promise();
+			console.log('Envrionment variables saved on AWS Secret Manager!');
 		} catch (error) {
 			if (error.message.includes('already exists')) {
 				await secretsManager
@@ -25,7 +26,7 @@ const secretsManagerFunctionFactory = (
 						SecretString: config.SecretString
 					})
 					.promise();
-				console.log('Envrionment variables saved on AWS Secret Manager!');
+				console.log('Envrionment variables updated on AWS Secret Manager!');
 			} else {
 				console.error(error, error.stack);
 				throw error;
