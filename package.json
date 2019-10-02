@@ -1,6 +1,6 @@
 {
   "name": "aws-secrets-dotenv",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Easily manage your environment variables on AWS with .env",
   "keywords": [
     "aws",
