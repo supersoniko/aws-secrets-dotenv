@@ -1,3 +1,7 @@
+![npm](https://img.shields.io/npm/v/aws-secrets-dotenv)
+![NPM](https://img.shields.io/npm/l/aws-secrets-dotenv)
+![David](https://img.shields.io/david/supersoniko/aws-secrets-dotenv.svg)
+
 # aws-secrets-dotenv
 
 aws-secrets-dotenv is a tool that manages your envrionment variables for an application stored in the [AWS Secrets Manager](https://aws.amazon.com/secrets-manager/).
