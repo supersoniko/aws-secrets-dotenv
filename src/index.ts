@@ -12,7 +12,7 @@ const secretsManager = new AWS.SecretsManager();
 const config = getConfig('secrets');
 
 export const {
-	createLocalEnvrionment,
+	createLocalEnvironment,
 	createOrUpdateSecret
 } = secretsManagerFunctionFactory(secretsManager, fs, config);
 

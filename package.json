@@ -8,6 +8,8 @@
     "aws environment variables",
     "secrets manager",
     "environment variables",
+    "serverless secrets",
+    "serverless secrets manager",
     "dotenv",
     "env"
   ],

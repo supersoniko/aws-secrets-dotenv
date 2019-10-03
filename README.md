@@ -31,7 +31,7 @@ The default stage is `dev`.
 // package.json
   "scripts": {
     "upload-secrets": "aws-secrets-dotenv createOrUpdateSecret prod", // Store the environment variables of this machine to AWS Secrets Manager for prod environment.
-    "retrieve-secrets": "aws-secrets-dotenv createLocalEnvrionment prod" // Retrieve the environment variables from AWS Secrets Manager prod envrionment to a .env file in the root folder.
+    "retrieve-secrets": "aws-secrets-dotenv createLocalEnvironment prod" // Retrieve the environment variables from AWS Secrets Manager prod envrionment to a .env file in the root folder.
   }
 ````
 

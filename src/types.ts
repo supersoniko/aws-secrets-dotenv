@@ -6,5 +6,5 @@ export interface Config {
 
 export interface SecretManagerFunctionFactory {
 	createOrUpdateSecret: (stage?: string) => Promise<void>;
-	createLocalEnvrionment: (stage?: string) => Promise<void>;
+	createLocalEnvironment: (stage?: string) => Promise<void>;
 }
