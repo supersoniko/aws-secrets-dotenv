@@ -56,7 +56,9 @@ describe('SecretsManagerFunctionFactory', (): void => {
 			});
 			jest
 				.spyOn(fs, 'writeFileSync')
-				.mockImplementation((_fileName, _fileContent) => {});
+				.mockImplementation((_fileName, _fileContent) => {
+					return `${_fileContent} ${_fileName}`;
+				});
 
 			// Execute
 			await createLocalEnvironment();
@@ -82,7 +84,9 @@ describe('SecretsManagerFunctionFactory', (): void => {
 			});
 			jest
 				.spyOn(fs, 'writeFileSync')
-				.mockImplementation((_fileName, _fileContent) => {});
+				.mockImplementation((_fileName, _fileContent) => {
+					return `${_fileContent} ${_fileName}`;
+				});
 
 			// Execute
 			try {

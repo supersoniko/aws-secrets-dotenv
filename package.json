@@ -1,76 +1,75 @@
 {
-  "name": "aws-secrets-dotenv",
-  "version": "0.2.3",
-  "description": "Easily manage your environment variables on AWS with .env",
-  "keywords": [
-    "aws",
-    "aws secrets manager",
-    "aws environment variables",
-    "secrets manager",
-    "environment variables",
-    "serverless secrets",
-    "serverless secrets manager",
-    "dotenv",
-    "env"
-  ],
-  "author": "Sacha Reinert",
-  "license": "MIT",
-  "main": "./lib/index.js",
-  "types": "./lib/index.d.ts",
-  "bin": {
-    "aws-secrets-dotenv": "./lib/index.js"
-  },
-  "engines": {
-    "node": ">=8.6.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/supersoniko/aws-secrets-dotenv.git"
-  },
-  "bugs": {
-    "url": "https://github.com/supersoniko/aws-secrets-dotenv/issues"
-  },
-  "homepage": "https://github.com/supersoniko/aws-secrets-dotenv#readme",
-  "scripts": {
-    "test": "npm run lint && jest",
-    "build": "del-cli lib && tsc",
-    "lint": "eslint . --ext .js,.ts --ignore-path .gitignore",
-    "fix": "npm run lint -- --fix"
-  },
-  "dependencies": {
-    "aws-sdk": "^2.537.0",
-    "make-runnable": "^1.3.6",
-    "rc": "^1.2.8"
-  },
-  "devDependencies": {
-    "@types/jest": "^24.0.18",
-    "@types/node": "^12.7.8",
-    "@types/rc": "^1.1.0",
-    "@typescript-eslint/eslint-plugin": "^2.3.1",
-    "@typescript-eslint/parser": "^2.3.1",
-    "del": "^5.1.0",
-    "del-cli": "^3.0.0",
-    "eslint": "^6.5.0",
-    "eslint-config-prettier": "^6.3.0",
-    "eslint-config-xo-space": "^0.21.0",
-    "eslint-plugin-prettier": "^3.1.1",
-    "jest": "^25.3.0",
-    "prettier": "^1.18.2",
-    "ts-jest": "^24.1.0",
-    "typescript": "^3.6.3"
-  },
-  "jest": {
-    "transform": {
-      "^.+\\.tsx?$": "ts-jest"
-    },
-    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json",
-      "node"
-    ]
-  }
+	"name": "aws-secrets-dotenv",
+	"version": "0.2.3",
+	"description": "Easily manage your environment variables on AWS with .env",
+	"keywords": [
+		"aws",
+		"aws secrets manager",
+		"aws environment variables",
+		"secrets manager",
+		"environment variables",
+		"serverless secrets",
+		"serverless secrets manager",
+		"dotenv",
+		"env"
+	],
+	"author": "Sacha Reinert",
+	"license": "MIT",
+	"main": "./lib/index.js",
+	"types": "./lib/index.d.ts",
+	"bin": {
+		"aws-secrets-dotenv": "bin/aws-secrets-dontenv"
+	},
+	"engines": {
+		"node": ">=8.6.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/supersoniko/aws-secrets-dotenv.git"
+	},
+	"bugs": {
+		"url": "https://github.com/supersoniko/aws-secrets-dotenv/issues"
+	},
+	"homepage": "https://github.com/supersoniko/aws-secrets-dotenv#readme",
+	"scripts": {
+		"test": "npm run lint && jest",
+		"build": "del-cli lib && tsc",
+		"lint": "eslint . --ext .js,.ts --ignore-path .gitignore",
+		"fix": "npm run lint -- --fix"
+	},
+	"dependencies": {
+		"aws-sdk": "^2.766.0",
+		"rc": "^1.2.8"
+	},
+	"devDependencies": {
+		"@types/jest": "^24.9.1",
+		"@types/node": "^12.12.62",
+		"@types/rc": "^1.1.0",
+		"@typescript-eslint/eslint-plugin": "^2.34.0",
+		"@typescript-eslint/parser": "^2.34.0",
+		"del": "^5.1.0",
+		"del-cli": "^3.0.1",
+		"eslint": "^6.8.0",
+		"eslint-config-prettier": "^6.12.0",
+		"eslint-config-xo-space": "^0.21.0",
+		"eslint-plugin-prettier": "^3.1.4",
+		"jest": "^25.5.4",
+		"prettier": "^1.19.1",
+		"ts-jest": "^26.4.1",
+		"typescript": "^3.9.7"
+	},
+	"jest": {
+		"transform": {
+			"^.+\\.tsx?$": "ts-jest"
+		},
+		"testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+		"moduleFileExtensions": [
+			"ts",
+			"tsx",
+			"js",
+			"jsx",
+			"json",
+			"node"
+		]
+	}
 }

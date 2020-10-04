@@ -90,3 +90,6 @@ typings/
 .idea/
 
 lib
+
+# Mac
+.DS_Store
