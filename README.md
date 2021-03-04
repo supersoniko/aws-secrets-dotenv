@@ -1,6 +1,8 @@
 ![version](https://img.shields.io/github/package-json/v/Julez64/aws-dotenv?style=flat-square)
 ![license](https://img.shields.io/github/license/Julez64/aws-dotenv?style=flat-square)
 ![size](https://img.shields.io/github/languages/code-size/Julez64/aws-dotenv?style=flat-square)
+![node](https://img.shields.io/node/v/aws-dotenv?style=flat-square)
+
 
 # aws-dotenv :toolbox:
 
@@ -26,7 +28,7 @@ npm install aws-dotenv --save-dev
 }
 ````
 
-## AWS Authentication
+## Authentication :key:
 
 ### Using `.awsrc`
 
@@ -39,7 +41,7 @@ npm install aws-dotenv --save-dev
 }
 ```
 
-### Using AWS Configuration
+### Using AWS default configuration
 AWS Credentials can be configured using the AWS CLI tool. For additionnal AWS configuration documentation please refer to [Configuration and credential file settings](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html).
 
 - Configure the AWS account by creating `~/.aws/credentials`
