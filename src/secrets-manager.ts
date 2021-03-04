@@ -7,7 +7,7 @@ const secretsManagerFunctionFactory = (
 	fs: any,
 	config: Config
 ): SecretManagerFunctionFactory => ({
-	createOrUpdateSecret: async (stage = 'dev'): Promise<void> => {
+	setSecrets: async (stage = 'dev'): Promise<void> => {
 		try {
 			await secretsManager
 				.createSecret({
@@ -34,7 +34,7 @@ const secretsManagerFunctionFactory = (
 		}
 	},
 
-	createLocalEnvironment: async (stage = 'dev'): Promise<void> => {
+	pullSecrets: async (stage = 'dev'): Promise<void> => {
 		try {
 			const secretData = await secretsManager
 				.getSecretValue({ SecretId: `${config.Name}-${stage}` })

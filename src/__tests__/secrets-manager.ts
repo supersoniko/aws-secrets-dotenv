@@ -22,18 +22,18 @@ describe('SecretsManagerFunctionFactory', (): void => {
 		);
 	});
 
-	describe('createOrUpdateSecret', (): void => {
+	describe('setSecrets', (): void => {
 		it('successfully calls createSecret once', async (): Promise<void> => {
 			// Prepare
 			const secretMock = jest.fn();
-			const { createOrUpdateSecret } = secretsManagerFunctionFactory;
+			const { setSecrets } = secretsManagerFunctionFactory;
 
 			jest.spyOn(secretManager, 'createSecret').mockImplementation(() => {
 				return { promise: secretMock } as any;
 			});
 
 			// Execute
-			await createOrUpdateSecret();
+			await setSecrets();
 
 			// Assert
 			expect(secretMock).toHaveBeenCalled();
@@ -41,10 +41,10 @@ describe('SecretsManagerFunctionFactory', (): void => {
 		});
 	});
 
-	describe('createLocalEnvironment', (): void => {
+	describe('pullSecrets', (): void => {
 		it('successfully calls getSecretValue once', async (): Promise<void> => {
 			// Prepare
-			const { createLocalEnvironment } = secretsManagerFunctionFactory;
+			const { pullSecrets } = secretsManagerFunctionFactory;
 			const secretMock = jest
 				.fn()
 				.mockReturnValue(
@@ -61,7 +61,7 @@ describe('SecretsManagerFunctionFactory', (): void => {
 				});
 
 			// Execute
-			await createLocalEnvironment();
+			await pullSecrets();
 
 			// Assert
 			expect(secretMock).toHaveBeenCalled();
@@ -77,7 +77,7 @@ describe('SecretsManagerFunctionFactory', (): void => {
 					Promise.resolve({ SecretString: JSON.stringify({ beep: 'boop' }) })
 				);
 
-			const { createLocalEnvironment } = secretsManagerFunctionFactory;
+			const { pullSecrets } = secretsManagerFunctionFactory;
 
 			jest.spyOn(secretManager, 'getSecretValue').mockImplementation(() => {
 				return { promise: secretMock } as any;
@@ -90,7 +90,7 @@ describe('SecretsManagerFunctionFactory', (): void => {
 
 			// Execute
 			try {
-				await createLocalEnvironment();
+				await pullSecrets();
 			} catch (error) {
 				errorThrown = true;
 			}
@@ -108,7 +108,7 @@ describe('SecretsManagerFunctionFactory', (): void => {
 				.fn()
 				.mockReturnValue(Promise.resolve({ SecretString: undefined }));
 
-			const { createLocalEnvironment } = secretsManagerFunctionFactory;
+			const { pullSecrets } = secretsManagerFunctionFactory;
 
 			jest.spyOn(secretManager, 'getSecretValue').mockImplementation(() => {
 				return { promise: secretMock } as any;
@@ -116,7 +116,7 @@ describe('SecretsManagerFunctionFactory', (): void => {
 
 			// Execute
 			try {
-				await createLocalEnvironment();
+				await pullSecrets();
 			} catch (error) {
 				errorMessage = error.message;
 			}
@@ -129,7 +129,7 @@ describe('SecretsManagerFunctionFactory', (): void => {
 
 		it('successfully parses and writes .env', async (): Promise<void> => {
 			let content;
-			const { createLocalEnvironment } = secretsManagerFunctionFactory;
+			const { pullSecrets } = secretsManagerFunctionFactory;
 			const secretMock = jest
 				.fn()
 				.mockReturnValue(
@@ -146,7 +146,7 @@ describe('SecretsManagerFunctionFactory', (): void => {
 				});
 
 			// Execute
-			await createLocalEnvironment();
+			await pullSecrets();
 
 			// Assert
 			expect(secretMock).toHaveBeenCalled();

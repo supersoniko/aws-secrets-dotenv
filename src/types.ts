@@ -4,7 +4,13 @@ export interface Config {
 	SecretString: string;
 }
 
+export interface AWSConfig {
+	accessKeyId: string;
+	secretAccessKey: string;
+	region: string;
+}
+
 export interface SecretManagerFunctionFactory {
-	createOrUpdateSecret: (stage?: string) => Promise<void>;
-	createLocalEnvironment: (stage?: string) => Promise<void>;
+	setSecrets: (stage?: string) => Promise<void>;
+	pullSecrets: (stage?: string) => Promise<void>;
 }

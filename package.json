@@ -39,6 +39,7 @@
 	},
 	"dependencies": {
 		"aws-sdk": "^2.766.0",
+		"dotenv": "^8.2.0",
 		"rc": "^1.2.8"
 	},
 	"devDependencies": {

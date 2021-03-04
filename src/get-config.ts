@@ -6,10 +6,10 @@ export default (projectName: string): Config => {
 	const config = rc(projectName);
 
 	return {
-		Name: config.Name,
-		Description: config.Description,
+		Name: config.name,
+		Description: config.description,
 		SecretString: JSON.stringify(
-			config.LIST_OF_SECRETS.reduce((acc: any, key: string) => {
+			config.keys.reduce((acc: any, key: string) => {
 				acc[key] = process.env[key];
 				return acc;
 			}, {})
