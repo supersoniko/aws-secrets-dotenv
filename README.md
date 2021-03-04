@@ -1,6 +1,6 @@
-![npm](https://img.shields.io/npm/v/aws-secrets-dotenv)
-![NPM](https://img.shields.io/npm/l/aws-secrets-dotenv)
-![David](https://img.shields.io/david/supersoniko/aws-secrets-dotenv.svg)
+![version](https://img.shields.io/github/package-json/v/Julez64/aws-dotenv)
+![license](https://img.shields.io/github/license/Julez64/aws-dotenv)
+![size](https://img.shields.io/github/languages/code-size/Julez64/aws-dotenv?style=flat-square)
 
 # aws-secrets-dotenv :toolbox:
 
