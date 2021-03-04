@@ -1,5 +1,5 @@
 {
-	"name": "aws-dotenv-manager",
+	"name": "aws-dotenv",
 	"version": "1.0.0",
 	"description": "Manage your dotenv variables with the help of AWS Secrets Manager",
 	"keywords": [
@@ -18,19 +18,19 @@
 	"main": "./lib/index.js",
 	"types": "./lib/index.d.ts",
 	"bin": {
-		"aws-dotenv-manager": "bin/aws-dontenv"
+		"aws-dotenv": "bin/aws-dontenv"
 	},
 	"engines": {
 		"node": ">=8.6.0"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/Julez64/aws-dotenv-manager.git"
+		"url": "git+https://github.com/Julez64/aws-dotenv.git"
 	},
 	"bugs": {
-		"url": "https://github.com/Julez64/aws-dotenv-manager/issues"
+		"url": "https://github.com/Julez64/aws-dotenv/issues"
 	},
-	"homepage": "https://github.com/Julez64/aws-dotenv-manager#readme",
+	"homepage": "https://github.com/Julez64/aws-dotenv#readme",
 	"scripts": {
 		"test": "npm run lint && jest",
 		"build": "del-cli lib && tsc",
