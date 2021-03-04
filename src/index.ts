@@ -49,7 +49,7 @@ export const cli = (args: string[]): void => {
 			break;
 		default:
 			console.log(
-				'Please read the README at https://github.com/Julez64/aws-secrets-dotenv'
+				'Please read the README at https://github.com/Julez64/aws-dotenv'
 			);
 	}
 };

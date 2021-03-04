@@ -2,14 +2,14 @@
 ![license](https://img.shields.io/github/license/Julez64/aws-dotenv?style=flat-square)
 ![size](https://img.shields.io/github/languages/code-size/Julez64/aws-dotenv?style=flat-square)
 
-# aws-secrets-dotenv :toolbox:
+# aws-dotenv :toolbox:
 
-aws-secrets-dotenv is a cli tool that manages the envrionment variables for an application stored in the [AWS Secrets Manager](https://aws.amazon.com/secrets-manager/). The tool can set dotenv variables from your machine to the AWS Secrets Manager and pull them back from AWS to a `.env` file.
+aws-dotenv is a cli tool that manages the envrionment variables for an application stored in the [AWS Secrets Manager](https://aws.amazon.com/secrets-manager/). The tool can set dotenv variables from your machine to the AWS Secrets Manager and pull them back from AWS to a `.env` file.
 
 ## Installation :hammer:
 
 ```sh
-npm install aws-secrets-dotenv --save-dev
+npm install aws-dotenv --save-dev
 ```
 
 ## Configuration :gear:
@@ -18,7 +18,7 @@ npm install aws-secrets-dotenv --save-dev
 ```json
 {
   "name": "My-Project",
-  "description": "This project uses aws-secrets-dotenv!",
+  "description": "This project uses aws-dotenv!",
   "keys": [
     "ENV_VARIABLE",
     "ANOTHER_ENV_VARIABLE"
@@ -67,7 +67,7 @@ AWS_SDK_LOAD_CONFIG allows the tool to use your `~/.aws/` config folder. We reco
 ## Usage :rocket:
 
 ```Shell
-$ aws-secrets-dotenv (command) (stage)
+$ aws-dotenv (command) (stage)
 ```
 
 ### Available Commands
@@ -83,10 +83,10 @@ Refers to the development stage of the application. It is used to differentiate 
 Setting up `package.json`
 ```json
   "scripts": {
-    "set-env-dev": "aws-secrets-dotenv set", // Store the environment variables of this machine to AWS Secrets Manager for dev environment.
-    "pull-env-dev": "aws-secrets-dotenv pull", // Retrieve the environment variables from AWS Secrets Manager dev envrionment to a .env file in the root folder.
-    "set-env-prod": "aws-secrets-dotenv set prod", // Store the environment variables of this machine to AWS Secrets Manager for prod environment.
-    "pull-env-prod": "aws-secrets-dotenv pull prod" // Retrieve the environment variables from AWS Secrets Manager prod envrionment to a .env file in the root folder.
+    "set-env-dev": "aws-dotenv set", // Store the environment variables of this machine to AWS Secrets Manager for dev environment.
+    "pull-env-dev": "aws-dotenv pull", // Retrieve the environment variables from AWS Secrets Manager dev envrionment to a .env file in the root folder.
+    "set-env-prod": "aws-dotenv set prod", // Store the environment variables of this machine to AWS Secrets Manager for prod environment.
+    "pull-env-prod": "aws-dotenv pull prod" // Retrieve the environment variables from AWS Secrets Manager prod envrionment to a .env file in the root folder.
   }
 ````
 
