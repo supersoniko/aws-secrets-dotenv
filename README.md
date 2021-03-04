@@ -55,7 +55,6 @@ aws_secret_access_key=secret_access_key
 region=ca-central-1
 output=json
 ```
-For additionnal AWS configuration documentation please refer to [Configuration and credential file settings](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html).
 
 - Create `.env` at the root of the project
 ```ini

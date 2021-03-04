@@ -1,7 +1,7 @@
 {
-	"name": "aws-secrets-dotenv",
+	"name": "aws-dotenv",
 	"version": "1.0.0",
-	"description": "Easily manage your environment variables on AWS with .env",
+	"description": "Manage your dotenv variables with the help of AWS Secrets Manager",
 	"keywords": [
 		"aws",
 		"aws secrets manager",
@@ -13,24 +13,24 @@
 		"dotenv",
 		"env"
 	],
-	"author": "Sacha Reinert",
+	"author": "Julien Ferluc",
 	"license": "MIT",
 	"main": "./lib/index.js",
 	"types": "./lib/index.d.ts",
 	"bin": {
-		"aws-secrets-dotenv": "bin/aws-secrets-dontenv"
+		"aws-dotenv": "bin/aws-dontenv"
 	},
 	"engines": {
 		"node": ">=8.6.0"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/supersoniko/aws-secrets-dotenv.git"
+		"url": "git+https://github.com/Julez64/aws-dotenv.git"
 	},
 	"bugs": {
-		"url": "https://github.com/supersoniko/aws-secrets-dotenv/issues"
+		"url": "https://github.com/Julez64/aws-dotenv/issues"
 	},
-	"homepage": "https://github.com/supersoniko/aws-secrets-dotenv#readme",
+	"homepage": "https://github.com/Julez64/aws-dotenv#readme",
 	"scripts": {
 		"test": "npm run lint && jest",
 		"build": "del-cli lib && tsc",
