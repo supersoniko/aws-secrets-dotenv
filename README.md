@@ -81,7 +81,7 @@ Refers to the development stage of the application. It is used to differentiate 
 
 ### example
 Setting up `package.json`
-```json
+```js
   "scripts": {
     "set-env-dev": "aws-dotenv-manager set", // Store the environment variables of this machine to AWS Secrets Manager for dev environment.
     "pull-env-dev": "aws-dotenv-manager pull", // Retrieve the environment variables from AWS Secrets Manager dev envrionment to a .env file in the root folder.
