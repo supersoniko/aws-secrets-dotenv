@@ -1,5 +1,5 @@
-![version](https://img.shields.io/github/package-json/v/Julez64/aws-dotenv)
-![license](https://img.shields.io/github/license/Julez64/aws-dotenv)
+![version](https://img.shields.io/github/package-json/v/Julez64/aws-dotenv?style=flat-square)
+![license](https://img.shields.io/github/license/Julez64/aws-dotenv?style=flat-square)
 ![size](https://img.shields.io/github/languages/code-size/Julez64/aws-dotenv?style=flat-square)
 
 # aws-secrets-dotenv :toolbox:
