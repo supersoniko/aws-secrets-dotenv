@@ -33,17 +33,17 @@ export const {
 export default secretsManagerFunctionFactory;
 
 export const cli = (args: string[]): void => {
-	const command = args.slice(2)[0];
-	const stage = args.slice(2)[1];
+	const secretName = args.slice(2)[0];
 
 	switch (command) {
 		case 'set':
-			setSecrets(stage).catch(err =>
+			setSecrets(secretName).catch(err =>
 				console.error('An error occured', err)
 			);
 			break;
 		case 'pull':
-			pullSecrets(stage).catch(err =>
+			const stage = args.slice(2)[1];
+			pullSecrets(secretName, stage).catch(err =>
 				console.error('An error occured', err)
 			);
 			break;

@@ -11,6 +11,6 @@ export interface AWSConfig {
 }
 
 export interface SecretManagerFunctionFactory {
-	setSecrets: (stage?: string) => Promise<void>;
-	pullSecrets: (stage?: string) => Promise<void>;
+	setSecrets: (secretName?: string) => Promise<void>;
+	pullSecrets: (secretName?: string, stage?: string) => Promise<void>;
 }

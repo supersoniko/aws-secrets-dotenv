@@ -7,11 +7,11 @@ const secretsManagerFunctionFactory = (
 	fs: any,
 	config: Config
 ): SecretManagerFunctionFactory => ({
-	setSecrets: async (stage = 'dev'): Promise<void> => {
+	setSecrets: async (secretName): Promise<void> => {
 		try {
 			await secretsManager
 				.createSecret({
-					Name: `${config.Name}-${stage}`,
+					Name: `${secretName}`,
 					Description: config.Description,
 					SecretString: config.SecretString
 				})
@@ -21,7 +21,7 @@ const secretsManagerFunctionFactory = (
 			if (error.message.includes('already exists')) {
 				await secretsManager
 					.updateSecret({
-						SecretId: `${config.Name}-${stage}`,
+						SecretId: `${secretName}`,
 						Description: config.Description,
 						SecretString: config.SecretString
 					})
@@ -34,10 +34,10 @@ const secretsManagerFunctionFactory = (
 		}
 	},
 
-	pullSecrets: async (stage = 'dev'): Promise<void> => {
+	pullSecrets: async (secretName, stage): Promise<void> => {
 		try {
 			const secretData = await secretsManager
-				.getSecretValue({ SecretId: `${config.Name}-${stage}` })
+				.getSecretValue({ SecretId: `${secretName}` })
 				.promise();
 
 			if (!secretData.SecretString) throw new Error('No data in secret.');
@@ -49,7 +49,7 @@ const secretsManagerFunctionFactory = (
 				''
 			);
 
-			fs.writeFileSync('.env', envFileContent);
+			fs.writeFileSync(`.env.${stage}`, envFileContent);
 			console.log('The .env file has been written successfully!');
 		} catch (error) {
 			console.error(error, error.stack);
