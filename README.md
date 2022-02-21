@@ -82,14 +82,17 @@ Default stage is `dev`.
 Refers to the development stage of the application. It is used to differentiate the multiple `.env` configurations your project might use at any time. Generally in the form of `dev`, `test` and `prod` but the name does not matter.
 
 ### example
-In these examples the files .env.prod and .env.dev are used. Secret name is defined in AWS Secrets Manager.
+In these examples the files .env.prod and .env.dev are used. Secret name is defined in AWS Secrets Manager. You can also add these commands into your build so when they are pulled in when you deploy.
+
 Setting up `package.json`
 ```js
   "scripts": {
-    "set-env-dev": "aws-dotenv set {Secret Name}", // Store the environment variables of this machine to AWS Secrets Manager for dev environment.
-    "pull-env-dev": "aws-dotenv pull {Secret Name} dev", // Retrieve the environment variables from AWS Secrets Manager dev envrionment to a .env file in the root folder.
-    "set-env-prod": "aws-dotenv set {Secret Name}", // Store the environment variables of this machine to AWS Secrets Manager for prod environment.
-    "pull-env-prod": "aws-dotenv pull {Secret Name} prod" // Retrieve the environment variables from AWS Secrets Manager prod envrionment to a .env file in the root folder.
+    "build:dev": "yarn pull-env-dev && env-cmd -f .env.dev react-scripts build",
+    "build:prod": "yarn pull-env-prod && env-cmd -f .env.prod react-scripts build",
+    "set-env-dev": "env-cmd -f .env.dev aws-dotenv set dev/example",
+    "pull-env-dev": "aws-dotenv pull dev/example dev",
+    "set-env-prod": "env-cmd -f .env.prod aws-dotenv set prod/example",
+    "pull-env-prod": "aws-dotenv pull prod/example prod",
   }
 ````
 
