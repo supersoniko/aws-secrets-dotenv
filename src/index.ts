@@ -33,7 +33,8 @@ export const {
 export default secretsManagerFunctionFactory;
 
 export const cli = (args: string[]): void => {
-	const secretName = args.slice(2)[0];
+	const command = args.slice(2)[0]
+	const secretName = args.slice(2)[1];
 
 	switch (command) {
 		case 'set':
@@ -42,7 +43,7 @@ export const cli = (args: string[]): void => {
 			);
 			break;
 		case 'pull':
-			const stage = args.slice(2)[1];
+			const stage = args.slice(2)[2];
 			pullSecrets(secretName, stage).catch(err =>
 				console.error('An error occured', err)
 			);
