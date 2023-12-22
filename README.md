@@ -1,6 +1,5 @@
 ![npm](https://img.shields.io/npm/v/aws-secrets-dotenv)
 ![NPM](https://img.shields.io/npm/l/aws-secrets-dotenv)
-![David](https://img.shields.io/david/supersoniko/aws-secrets-dotenv.svg)
 
 # aws-secrets-dotenv
 
@@ -8,6 +7,8 @@ aws-secrets-dotenv is a tool that manages your envrionment variables for an appl
 
 The tool can store envrionment variables from the machine it's run on to the AWS Secrets Manager and retrieve secrets from AWS to a `.env` file which is a standard for a lot of technologies.
 This tool is typically used in the build pipeline of an application.
+
+> **_NOTE:_**  Always be careful not to leak the .env file. This is a common security concern.
 
 ## Installation
 

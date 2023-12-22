@@ -1,4 +1,4 @@
-import SecretsManager from 'aws-sdk/clients/secretsmanager';
+import { SecretsManagerClient } from '@aws-sdk/client-secrets-manager';
 import fs from 'fs';
 
 import secretsManagerFunctionFactoryImpl from '../secrets-manager';
@@ -6,19 +6,19 @@ import { Config, SecretManagerFunctionFactory } from '../types';
 
 describe('SecretsManagerFunctionFactory', (): void => {
 	let secretsManagerFunctionFactory: SecretManagerFunctionFactory;
-	let secretManager: SecretsManager;
+	let secretManager: SecretsManagerClient;
 	const config: Config = {
 		Name: 'Beep',
 		Description: 'Boop',
-		SecretString: JSON.stringify({ beep: 'boop' })
+		SecretString: JSON.stringify({ beep: 'boop' }),
 	};
 
 	beforeEach(async () => {
-		secretManager = new SecretsManager();
+		secretManager = new SecretsManagerClient();
 		secretsManagerFunctionFactory = secretsManagerFunctionFactoryImpl(
 			secretManager,
 			fs,
-			config
+			config,
 		);
 	});
 
@@ -28,9 +28,9 @@ describe('SecretsManagerFunctionFactory', (): void => {
 			const secretMock = jest.fn();
 			const { createOrUpdateSecret } = secretsManagerFunctionFactory;
 
-			jest.spyOn(secretManager, 'createSecret').mockImplementation(() => {
-				return { promise: secretMock } as any;
-			});
+			jest
+				.spyOn(secretManager, 'send')
+				.mockImplementation(() => Promise.resolve(secretMock()));
 
 			// Execute
 			await createOrUpdateSecret();
@@ -48,17 +48,17 @@ describe('SecretsManagerFunctionFactory', (): void => {
 			const secretMock = jest
 				.fn()
 				.mockReturnValue(
-					Promise.resolve({ SecretString: JSON.stringify({ beep: 'boop' }) })
+					Promise.resolve({ SecretString: JSON.stringify({ beep: 'boop' }) }),
 				);
 
-			jest.spyOn(secretManager, 'getSecretValue').mockImplementation(() => {
-				return { promise: secretMock } as any;
-			});
+			jest
+				.spyOn(secretManager, 'send')
+				.mockImplementation(() => Promise.resolve(secretMock()));
 			jest
 				.spyOn(fs, 'writeFileSync')
-				.mockImplementation((_fileName, _fileContent) => {
-					return `${_fileContent} ${_fileName}`;
-				});
+				.mockImplementation(
+					(_fileName, _fileContent) => `${_fileContent} ${_fileName}`,
+				);
 
 			// Execute
 			await createLocalEnvironment();
@@ -74,19 +74,19 @@ describe('SecretsManagerFunctionFactory', (): void => {
 			const secretMock = jest
 				.fn()
 				.mockReturnValue(
-					Promise.resolve({ SecretString: JSON.stringify({ beep: 'boop' }) })
+					Promise.resolve({ SecretString: JSON.stringify({ beep: 'boop' }) }),
 				);
 
 			const { createLocalEnvironment } = secretsManagerFunctionFactory;
 
-			jest.spyOn(secretManager, 'getSecretValue').mockImplementation(() => {
-				return { promise: secretMock } as any;
-			});
+			jest
+				.spyOn(secretManager, 'send')
+				.mockImplementation(() => Promise.resolve(secretMock()));
 			jest
 				.spyOn(fs, 'writeFileSync')
-				.mockImplementation((_fileName, _fileContent) => {
-					return `${_fileContent} ${_fileName}`;
-				});
+				.mockImplementation(
+					(_fileName, _fileContent) => `${_fileContent} ${_fileName}`,
+				);
 
 			// Execute
 			try {
@@ -110,15 +110,15 @@ describe('SecretsManagerFunctionFactory', (): void => {
 
 			const { createLocalEnvironment } = secretsManagerFunctionFactory;
 
-			jest.spyOn(secretManager, 'getSecretValue').mockImplementation(() => {
-				return { promise: secretMock } as any;
-			});
+			jest
+				.spyOn(secretManager, 'send')
+				.mockImplementation(() => Promise.resolve(secretMock()));
 
 			// Execute
 			try {
 				await createLocalEnvironment();
 			} catch (error) {
-				errorMessage = error.message;
+				errorMessage = (error as Error).message;
 			}
 
 			// Assert
@@ -133,12 +133,12 @@ describe('SecretsManagerFunctionFactory', (): void => {
 			const secretMock = jest
 				.fn()
 				.mockReturnValue(
-					Promise.resolve({ SecretString: JSON.stringify({ beep: 'boop' }) })
+					Promise.resolve({ SecretString: JSON.stringify({ beep: 'boop' }) }),
 				);
 
-			jest.spyOn(secretManager, 'getSecretValue').mockImplementation(() => {
-				return { promise: secretMock } as any;
-			});
+			jest
+				.spyOn(secretManager, 'send')
+				.mockImplementation(() => Promise.resolve(secretMock()));
 			jest
 				.spyOn(fs, 'writeFileSync')
 				.mockImplementation((_fileName, fileContent) => {

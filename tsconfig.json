@@ -1,18 +1,18 @@
 {
-  "compilerOptions": {
-    "target": "ES2016",
-    "module": "commonjs",
-    "outDir": "./lib",
-    "rootDir": "./src",
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "allowSyntheticDefaultImports": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "declaration": true
-  },
-  "exclude": [
-    "**/__tests__/*"
-  ]
+	"compilerOptions": {
+		"lib": ["es2023"],
+		"module": "ESNext",
+		"moduleResolution": "node",
+		"target": "es2022",
+		"strict": true,
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"forceConsistentCasingInFileNames": true,
+		"declaration": true,
+		"emitDeclarationOnly": true,
+		"allowImportingTsExtensions": true,
+		"outDir": "./.dist"
+	},
+	"include": ["src/**/*"],
+	"exclude": ["src/__tests__/**/*.ts"]
 }

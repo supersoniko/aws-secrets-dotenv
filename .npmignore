@@ -6,3 +6,9 @@ typings
 .idea
 wallaby.js
 .secretsrc
+.eslintrc.cjs
+.env
+.eslintignore
+.prettierrc
+build.ts
+jest.json

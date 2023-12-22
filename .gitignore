@@ -89,7 +89,7 @@ typings/
 
 .idea/
 
-lib
+.dist
 
 # Mac
 .DS_Store
